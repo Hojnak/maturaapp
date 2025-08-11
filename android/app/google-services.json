@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "100430266946",
+    "project_id": "maturaappai",
+    "storage_bucket": "maturaappai.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:100430266946:android:9b979e7e6c47f7538f63db",
+        "android_client_info": {
+          "package_name": "com.example.matura_app_final"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWn_uT3e_f9EEskg7tv8H8p2PXwLT7n6U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
