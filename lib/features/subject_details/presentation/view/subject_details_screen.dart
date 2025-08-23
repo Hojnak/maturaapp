@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:matura_app_final/features/math_learning/presentation/view/learning_mode_screen.dart';
+import 'package:matura_app_final/features/polish_learning/presentation/view/polish_learning_screen.dart';
+
 
 class SubjectDetailsScreen extends StatelessWidget {
   // Ten ekran wymaga podania nazwy przedmiotu przy tworzeniu
@@ -28,12 +30,21 @@ class SubjectDetailsScreen extends StatelessWidget {
                 textStyle: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const LearningModeScreen(),
-                  ),
-                );
+                if (subjectName == 'Język Polski') {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const PolishLearningScreen(),
+                    ),
+                  );
+                } else if (subjectName == 'Matematyka') {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const LearningModeScreen(),
+                    ),
+                  );
+                }
               },
+
               child: const Text('Nauka'),
             ),
             const SizedBox(height: 24),

@@ -1,12 +1,17 @@
 // Plik: lib/features/home/presentation/view/home_screen.dart
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:matura_app_final/features/profile/presentation/view/profile_screen.dart';
 // Upewnij się, że ta ścieżka jest poprawna dla Twojego projektu!
 // Zmień 'flutter_application_1' na nazwę swojego projektu, jeśli jest inna.
 import 'package:matura_app_final/features/subject_details/presentation/view/subject_details_screen.dart';
 
+
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  final User user;
+  const HomeScreen({super.key, required this.user});
+
 
   @override
   Widget build(BuildContext context) {
@@ -55,14 +60,30 @@ class HomeScreen extends StatelessWidget {
         elevation: 0,
         // Ikona profilu po prawej stronie
         actions: [
-          IconButton(
-            icon: const Icon(Icons.person_outline, size: 30),
-            onPressed: () {
-              // Tutaj będzie logika logowania/profilu
-            },
+          Padding(
+            padding: const EdgeInsets.only(right: 12.0),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProfileScreen(user: user),
+                  ),
+                );
+              },
+              child: CircleAvatar(
+
+                radius: 20,
+                backgroundImage:
+                    user.photoURL != null ? NetworkImage(user.photoURL!) : null,
+                child: user.photoURL == null
+                    ? const Icon(Icons.person, size: 25)
+                    : null,
+              ),
+            ),
           ),
-          const SizedBox(width: 8),
         ],
+
       ),
       // Body to główna zawartość ekranu
       // Używamy ListView, aby zapewnić przewijanie na mniejszych ekranach
